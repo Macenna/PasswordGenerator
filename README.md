@@ -28,3 +28,4 @@ THEN the password is either displayed in an alert or written to the page
 Mock-Up
 The following image shows the web application's appearance and functionality:
 
+![image](https://user-images.githubusercontent.com/38767248/100822324-14f30200-3420-11eb-8caa-e58a1ea376c5.png)

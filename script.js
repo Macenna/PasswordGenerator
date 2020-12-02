@@ -37,40 +37,40 @@ function generatePassword() {                                 // This is the fun
     var addSpecialChars = confirm("Would you like Special Characters in your password?");
     
     if (addSpecialChars) {
-      availablePasswordOptions = availablePasswordOptions.concat(specialString);
+      availablePasswordOptions = availablePasswordOptions.concat(specialString);      // If user selects "ok" to the special characters confirm question, the specialString is concatenated into the array of possible character options for the password
       console.log(availablePasswordOptions);
     }
     
     var addLowerCase = confirm("Would you like Lowercase characters in your password?");
     
     if (addLowerCase) {
-      availablePasswordOptions = availablePasswordOptions.concat(lowerString);
+      availablePasswordOptions = availablePasswordOptions.concat(lowerString);        // Same as above 2 if statements, just for the lowercase characters string 
       console.log(availablePasswordOptions);
     }
     
     var addUpperCase = confirm("Would you like Uppercase characters in your password?");
     
     if (addUpperCase) {
-      availablePasswordOptions = availablePasswordOptions.concat(upperString);
+      availablePasswordOptions = availablePasswordOptions.concat(upperString);        // Same as above 3 if statements 
       console.log(availablePasswordOptions);
     }
     
-    console.log("The available password options are:");
+    console.log("The available password options are:");                               // This lets developer know which options the user confirmed for their password 
     console.log(availablePasswordOptions);
     
-    var userPassword = "";
+    var userPassword = "";                                                            // userPassword value is an empty string b/c the for loop will generate the value as the iterations run through the for loop
     
-    for (var i = 0; i < getPassLength; i++) {
-      var rand = Math.floor(Math.random() * availablePasswordOptions.length);
-      userPassword += availablePasswordOptions[rand];
+    for (var i = 0; i < getPassLength; i++) {                                         // getPassLength is the first prompt displayed once user clicks the submit button - the value of this variable is passed from line 24
+      var rand = Math.floor(Math.random() * availablePasswordOptions.length);         // for each random value, every index from the available options array is used to randomly calculate index values that are then converted into their string values to randomly generate a password   
+      userPassword += availablePasswordOptions[rand];                                 // The userPassword value increases by 1 index each iteration based on the availablePasswordOptions w/ the rand function 
       console.log(userPassword);
-    }
+    }                                                                                 // The for loop will add 1 randomly generated character to the userPassword until the user's chosen password length is reached 
     
-    console.log(userPassword);
-    passwordText.textContent = userPassword;
+    console.log(userPassword);                                                        // Displays randomly generated password to the developer in the console 
+    passwordText.textContent = userPassword;                                          // passwordText is the mutable variable called from the HTML text-area element, its textContent is rendered to display the function's output on the web browser
   } 
-  else {
+  else {                                                                              // If the user's input does not fit the conditions in the initial prompt, this else statement block is executed instead 
     alert("Must be between 6 and 128");
-    passwordText.textContent = "";
+    passwordText.textContent = "";                                                    // The password generator remains empty if the else statement executes - nothing is executed b/c conditions are unmet 
   }
 };

@@ -19,50 +19,58 @@ console.log(specialString);
 console.log(lowerString);
 console.log(upperString);
 
-function generatePassword() {
-  var getPassLength = prompt(
-    "Please enter the number of Password characters your like"
-  );
-  getPassLength = parseInt(getPassLength);
-  if (getPassLength > 6 && getPassLength < 128) {
-    var addNumbers = confirm("Would you like numbers in your password?");
-    if (addNumbers) {
-      availablePasswordOptions = availablePasswordOptions.concat(numbersString);
+function generatePassword() {                                 // This is the function that generates the password randomly based on the sets of if/else statements, consoled throughout to ensure & check functionality 
+  
+  var getPassLength = prompt("Please enter the number of Password characters your like");   // The value of this var becomes how many times the application has to loop through all of the character options to randomly generate a password
+  
+  getPassLength = parseInt(getPassLength);                    // parseInt converts the prompt response from a string to an integer
+  
+  if (getPassLength > 6 && getPassLength < 128) {             // Password length has to be between 6 & 128 characters in order for function to execute 
+    
+    var addNumbers = confirm("Would you like numbers in your password?");     // Confirm has boolean values so the if/else statement is derived from one of those 2 choices
+    
+    if (addNumbers) {                                         // "If user pushes 'ok' to the confirm question..."
+      availablePasswordOptions = availablePasswordOptions.concat(numbersString);      // Then, the string containing number values is concatenated to the array of possible characters 
       console.log(availablePasswordOptions);
     }
-    var addSpecialChars = confirm(
-      "Would you like Special Characters in your password?"
-    );
+    
+    var addSpecialChars = confirm("Would you like Special Characters in your password?");
+    
     if (addSpecialChars) {
       availablePasswordOptions = availablePasswordOptions.concat(specialString);
       console.log(availablePasswordOptions);
     }
-    var addLowerCase = confirm(
-      "Would you like Lowercase characters in your password?"
-    );
+    
+    var addLowerCase = confirm("Would you like Lowercase characters in your password?");
+    
     if (addLowerCase) {
       availablePasswordOptions = availablePasswordOptions.concat(lowerString);
       console.log(availablePasswordOptions);
     }
-    var addUpperCase = confirm(
-      "Would you like Uppercase characters in your password?"
-    );
+    
+    var addUpperCase = confirm("Would you like Uppercase characters in your password?");
+    
     if (addUpperCase) {
       availablePasswordOptions = availablePasswordOptions.concat(upperString);
       console.log(availablePasswordOptions);
     }
+    
     console.log("The available password options are:");
     console.log(availablePasswordOptions);
+    
     var userPassword = "";
+    
     for (var i = 0; i < getPassLength; i++) {
       var rand = Math.floor(Math.random() * availablePasswordOptions.length);
       userPassword += availablePasswordOptions[rand];
       console.log(userPassword);
     }
+    
     console.log(userPassword);
     passwordText.textContent = userPassword;
-  } else {
+  } 
+  else {
     alert("Must be between 6 and 128");
     passwordText.textContent = "";
   }
-}
+};

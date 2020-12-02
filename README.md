@@ -1,5 +1,7 @@
 # Password Generator
 
+https://macenna.github.io/PasswordGenerator/
+
 An application that an employee can use to generate a random password based on criteria they’ve selected by modifying starter code. This app will run in the browser, and includes dynamically updated HTML, CSS, & JavaScript. Clean and polished user interface that is responsive, it adapts to multiple screen sizes.
 
 The password can include special characters. If you’re unfamiliar with these, see this list of Password Special Characters from the OWASP Foundation.
